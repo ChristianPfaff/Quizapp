@@ -23,7 +23,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body onload="init()">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">QuizApp</span>
@@ -31,25 +31,31 @@
     </nav>
 
     <div class="container">
-      <div class="card" style="width: 18rem">
+      <div class="card quiz-card">
         <img src="img/pencil.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
-          <div class="card">
-            <div class="card-body">Antwort</div>
+          <h5 class="card-title" id="questiontext">Frage</h5>
+
+          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+            <div class="card-body" id="answer_1"></div>
           </div>
 
-          <div class="card">
-            <div class="card-body">Antwort</div>
+          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+            <div class="card-body" id="answer_2"></div>
           </div>
 
-          <div class="card">
-            <div class="card-body">Antwort</div>
+          <div class="card mb-2" onclick="answer('answer_3')">
+            <div class="card-body quiz-answer-card" id="answer_3"></div>
           </div>
 
-          <div class="card">
-            <div class="card-body">Antwort</div>
+          <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+            <div class="card-body" id="answer_4"></div>
           </div>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+
+          <div class="question-footer">
+            <span><b>1</b> von <b id="number-questions">5</b> Fragen</span>
+            <button type="button" class="btn btn-primary">Nächste Frage</button>
+          </div>
         </div>
       </div>
     </div>
