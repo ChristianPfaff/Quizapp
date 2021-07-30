@@ -8,7 +8,7 @@ let questions = [
     "answer_2": "Lady Gaga",
     "answer_3": "Tim Bernes-Lee",
     "answer_4": "Justin Biber",
-    "right": 3
+    "right_answer": 3
   },
   {
     "question": "Was bedeutet das HTML Tag &lt;a&gt;?",
@@ -24,7 +24,7 @@ let questions = [
     "answer_2": "&lt;iframe&gt;",
     "answer_3": "&lt;iframe&gt;",
     "answer_4": "&lt;frameset&gt;",
-    "right": 2
+    "right_anwer": 2
   },
   {
     "question": "Welches Attribut kann man NICHT für Textarea verwenden?",
@@ -32,7 +32,7 @@ let questions = [
     "answer_2": "max",
     "answer_3": "from",
     "answer_4": "spellcheck",
-    "right": 1
+    "right_anwert": 1
   },
   {
     "question": "Wie wählst du alle Elemente vom Typ &lt;a&gt; mitdemattribut titleaus?",
@@ -40,7 +40,7 @@ let questions = [
     "answer_2": "a > [title]{...}",
     "answer_3": "a.[title]{...}",
     "answer_4": "a=[title]{...}",
-    "right": 1
+    "right_answer": 1
   },
   {
     "question": "Wie definiert man in JavaScript eine Variable?",
@@ -48,7 +48,7 @@ let questions = [
     "answer_2": "100 = let rate;",
     "answer_3": "rate = 100;",
     "answer_4": "let rate = 100;",
-    "right": 4
+    "right_anwer": 4
   }
 ];
 
@@ -77,4 +77,23 @@ function showQuestion() {
     alert('Falsch!!')
   }
 } */
+function answer(selection) {
+  let question = questions[currentQuestion];
+  console.log('Selected answer is', selection);
+  let selectedQuestionNumber = selection.slice(-1);
+  console.log('seletedQuestionNumber is ', selectedQuestionNumber);
+  console.log('Current question is ', question['right_answer']);
 
+  let idOfRightAnswer = `answer_${question['right_answer']}`;
+
+
+  if (selectedQuestionNumber == question['right_answer']) {
+    console.log('richtige Antwort!!');
+    document.getElementById(selection).parentNode.classList.add('bg-success');
+  }
+  else {
+    console.log('falsche Antwort!!!');
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+  }
+}
